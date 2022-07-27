@@ -29,10 +29,10 @@ Store.prototype.getCustPerHour = function(){
 
 Store.prototype.getcookieSoldPerHour = function(){
   this.getCustPerHour();
-  for (let i = 0; i <= hours.length; i++) {
+  for (let i = 0; i < hours.length; i++) {
     let cookiePerHour = Math.ceil(this.custPerHour[i] * this.avgCookie);
     this.cookieSoldPerHour.push(cookiePerHour);
-    this.total += this.cookiePerHour;
+    this.total += cookiePerHour;
   }
 };
 
@@ -59,7 +59,6 @@ Store.prototype.render = function() {
   let liElem = document.createElement('li');
   liElem.textContent = `Total: ${this.total} cookies`;
   ulElem.appendChild(liElem);
-
 };
 
 const seattleStore = new Store('Seattle', 23, 65, 6.3);
