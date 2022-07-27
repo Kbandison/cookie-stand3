@@ -1,6 +1,7 @@
 'use strict';
 
 let storeDiv = document.getElementById('store');
+let table = document.getElementById('storeTable');
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -59,6 +60,13 @@ Store.prototype.render = function() {
   let liElem = document.createElement('li');
   liElem.textContent = `Total: ${this.total} cookies`;
   ulElem.appendChild(liElem);
+
+  let row = document.createElement('tr');
+  table.appendChild(row);
+
+  let th1 = document.createElement('th');
+  th1.textContent = `${this.city}`;
+  row.appendChild(th1);
 };
 
 const seattleStore = new Store('Seattle', 23, 65, 6.3);
